@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moodrix 💜</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- 💜 Welcome Screen -->
+        <div id="welcome">
+            <h1>Welcome to Moodrix 💜</h1>
+            <p>Let your mood choose your music</p>
+            <button onclick="startApp()">Start</button>
+        </div>
+
+        <!-- 📸 Main App -->
+        <div id="app" style="display:none;">
+            
+            <h2 id="emotionText">Emotion: --</h2>
+
+            <!-- 🎥 CAMERA -->
+            <video id="video" width="280" height="180" autoplay></video>
+
+            <!-- 🎵 SONG CARD -->
+            <div class="song-card">
+
+                <!-- 🖼 Album Art -->
+                <img id="albumArt" src="" alt="Album Art" />
+
+                <!-- 🎶 Song Name -->
+                <h3 id="songText">Song will appear here</h3>
+
+                <!-- 🎧 AUDIO PLAYER -->
+                <audio id="audio-player" controls></audio>
+
+                <!-- ▶ Spotify -->
+                <button id="playBtn" onclick="playSong()" style="display:none;">
+                    ▶ Play on Spotify
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

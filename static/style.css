@@ -1,0 +1,110 @@
+/* 🌌 Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+    color: white;
+    text-align: center;
+    transition: background 0.8s ease;
+}
+
+/* 💜 Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 🧊 Glass card */
+#welcome, #app {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    width: 350px;
+}
+
+/* ✨ Headings */
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+/* 🎥 Camera */
+video {
+    border-radius: 15px;
+    margin: 10px 0;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* 🎧 Audio */
+audio {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* 🔘 Buttons */
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+}
+
+/* 🎵 Song text */
+#songText {
+    font-size: 16px;
+    opacity: 0.9;
+}
+/* ✨ Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation */
+#welcome, #app {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* 💜 Pulse glow on emotion */
+#emotionText {
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 5px #a855f7;
+    }
+    to {
+        text-shadow: 0 0 20px #6366f1;
+    }
+}
