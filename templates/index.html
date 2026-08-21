@@ -1,52 +1,63 @@
-<gi!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Moodrix 💜</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodrix</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-    <div class="container">
+<!-- Hero Section -->
+<section id="hero">
+    <div class="hero-content">
 
-        <!-- 💜 Welcome Screen -->
-        <div id="welcome">
-            <h1>Welcome to Moodrix 💜</h1>
-            <p>Let your mood choose your music</p>
-            <button onclick="startApp()">Start</button>
+        <!-- Animated MP4 Logo -->
+        <video class="logo" autoplay muted loop playsinline>
+            <source src="/static/moodrix-logo.mp4" type="video/mp4">
+        </video>
+
+        <h1>Welcome to <span>Moodrix</span> 🎵</h1>
+        <p>Your real-time emotion-based music companion. Moodrix detects your mood and plays songs that match your vibe, powered by Spotify.</p>
+
+        <div class="owners">
+            <p>Owner: <strong>Suhani Sadh</strong></p>
+            <p>Co-Owner: <strong>Prashanna Khandelwal</strong></p>
         </div>
 
-        <!-- 📸 Main App -->
-        <div id="app" style="display:none;">
-            
-            <h2 id="emotionText">Emotion: --</h2>
-
-            <!-- 🎥 CAMERA -->
-            <video id="video" width="280" height="180" autoplay></video>
-
-            <!-- 🎵 SONG CARD -->
-            <div class="song-card">
-
-                <!-- 🖼 Album Art -->
-                <img id="albumArt" src="" alt="Album Art" />
-
-                <!-- 🎶 Song Name -->
-                <h3 id="songText">Song will appear here</h3>
-
-                <!-- 🎧 AUDIO PLAYER -->
-                <audio id="audio-player" controls></audio>
-
-                <!-- ▶ Spotify -->
-                <button id="playBtn" onclick="playSong()" style="display:none;">
-                    ▶ Play on Spotify
-                </button>
-
-            </div>
-
+        <div class="hero-images">
+            <img src="/static/spotify-logo.png" alt="Spotify Logo" class="spotify-logo">
+            <img src="/static/music1.jpg" alt="Music Vibe 1">
+            <img src="/static/music2.jpg" alt="Music Vibe 2">
         </div>
 
     </div>
+</section>
 
-    <script src="/static/script.js"></script>
+<!-- Mood Detection Container -->
+<div class="container">
+    <h1>🎧 Moodrix</h1>
+    <p>Let your mood choose your music</p>
+
+    <button onclick="startApp()">Detect Mood</button>
+
+    <video id="video" autoplay playsinline style="width: 100%; margin-top: 15px; border-radius: 15px;"></video>
+
+    <div id="result">
+        <p id="emotionText" style="opacity:0; margin-top:20px;"></p>
+        <p id="songText" style="opacity:0; margin-top:10px;"></p>
+
+        <img id="albumArt" src="" alt="Album Art" style="width:150px; border-radius:15px; margin-top:10px; opacity:0;">
+
+        <a id="playBtn" onclick="playSong()" style="display:none; margin-top:10px; cursor:pointer; color:#ffd700; text-decoration:underline;">
+            Play on Spotify
+        </a>
+
+        <audio id="audio-player" controls style="display:none;"></audio>
+    </div>
+
+</div>
+
+<script src="/static/script.js"></script>
 </body>
 </html>
