@@ -12,8 +12,9 @@ app = Flask(__name__)
 detector = FER(mtcnn=False)
 
 # --- Spotify API credentials ---
-CLIENT_ID = "9888e3f9fb034daeb58f362ee5221062"
-CLIENT_SECRET = "ba61d97f0130440b837f86f49fcae3bf"
+# Credentials are loaded from environment variables
+CLIENT_ID = os.environ.get("SPOTIFY_CLIENT_ID")
+CLIENT_SECRET = os.environ.get("SPOTIFY_CLIENT_SECRET")
 
 
 def get_token():
@@ -55,6 +56,7 @@ def get_song_by_emotion(emotion):
 
     data = response.json()
     tracks = data.get("tracks", {}).get("items", [])
+
     if not tracks:
         return {"error": "No songs found"}
 
@@ -79,7 +81,7 @@ def home():
 def detect_emotion():
     data = request.json["image"]
 
-    # decode base64 image
+    # Decode base64 image
     img_data = base64.b64decode(data.split(",")[1])
     np_arr = np.frombuffer(img_data, np.uint8)
     frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
@@ -87,7 +89,7 @@ def detect_emotion():
     result = detector.detect_emotions(frame)
 
     if result:
-        emotions = result[0]['emotions']
+        emotions = result[0]["emotions"]
         emotion = max(emotions, key=emotions.get)
     else:
         emotion = "neutral"
