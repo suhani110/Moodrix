@@ -5,3 +5,4 @@ numpy==1.26.4
 opencv-contrib-python==4.11.0.86
 fer==22.5.1
 tensorflow==2.21.0
+moviepy==1.0.3
